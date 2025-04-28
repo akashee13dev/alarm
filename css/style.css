@@ -1,0 +1,266 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+}
+
+html {
+  transition: all 0.5s ease-in;
+}
+
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+}
+
+html.dark {
+  background-color: #111;
+  color: var(--primary-color);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+#alarmContainer{
+  padding: 8px 12px;
+  position: absolute;
+  width: 25%;
+  height: 90%;
+  top: 50px;
+  right: 10px;
+}
+
+#stop{
+  background-color: var(--primary-color);
+  width: 70px;
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 10px;
+  right: 10%;
+  cursor: pointer;
+}
+
+#play{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  width: 70px;
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 10px;
+  right: 15%;
+  cursor: pointer;
+}
+
+.toggle {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.addBtn {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.addBtn:focus{
+  outline: none;
+}
+
+.toggle:focus {
+  outline: none;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-container{
+  margin-top: 100px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  opacity: 80%;
+  height: 100px;
+}
+
+.numberInput , .amPM  , .addBtn{
+  width: 100px;
+  height: 50%;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  margin: 10px;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+}
+
+.amPM{
+  background-color: #e74c3c;
+  color: var(--secondary-color);
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.needle {
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65px;
+  width: 3px;
+  transform-origin: bottom center;
+}
+
+.needle.hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.minute {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+}
+
+.needle.second {
+  background-color: #e74c3c;
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+}
+
+.center-point {
+  background-color: #e74c3c;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.center-point::after {
+  content: "";
+  background-color: var(--primary-color);
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.time {
+  font-size: 60px;
+}
+
+.date {
+  margin-top: 10px;
+  color: #aaa;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.date .circle {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 30px;
+  transition: all 0.5s ease-in;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Checked switch */
+.switch input:checked + .slider {
+  background-color: var(--primary-color); /* Or any active color */
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.alarmDetail{
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid var(--primary-color);
+  padding-top: 10px;
+  font-size: 30px;
+}
